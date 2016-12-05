@@ -1,11 +1,19 @@
 $(() => {
-  let xTurn = true;
+  const X = true;
+  const O = false;
+
+  let turn = X;
+  let values = [null, null, null, null, null, null, null, null, null];
+
   $('td').click(e => {
-    if (xTurn) {
-      $(e.target).text('x');
-    } else {
-      $(e.target).text('o');
+    if (values[e.target.id] !== null) {
+      return console.log('occupied already');
     }
-    xTurn = !xTurn;
+
+    let $target = $(e.target);
+    $target.text(turn === X ? 'x' : 'o');
+    values[e.target.id] = turn;
+
+    turn = !turn;
   });
 });
