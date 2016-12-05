@@ -1,6 +1,11 @@
 $(() => {
-  // $('body').text('hello');
+  let xTurn = true;
   $('td').click(e => {
-    console.log(e.target.id);
+    if (xTurn) {
+      $(e.target).text('x');
+    } else {
+      $(e.target).text('o');
+    }
+    xTurn = !xTurn;
   });
 });
