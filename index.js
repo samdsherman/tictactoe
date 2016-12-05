@@ -50,7 +50,7 @@ $(() => {
     $target.text(turn === X ? 'x' : 'o');
     values[e.target.id] = turn;
 
-    if (detectWin(e.target.id)) {
+    if (detectWin(+e.target.id)) {
       over = true;
       return $('#turn').text(turn === X ? 'X wins!' : 'O wins!');
     }
